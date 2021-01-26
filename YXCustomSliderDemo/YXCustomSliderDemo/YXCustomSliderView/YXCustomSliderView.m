@@ -198,8 +198,8 @@
     [_rightSliderImgV addGestureRecognizer:rightPanGesture];
     
     _partWidth = kSliderBgVWidth /kCount; //分段起点x
-    _priceMax = _partWidth *(kCount - 1) + 25;
     _priceMin = _partWidth;
+    _priceMax = _partWidth *(kCount - 1) + kSliderX;
     for (NSInteger i = 0; i < kCount + 1; i ++) {
         YXCustomSliderPointView *showView = [[[NSBundle mainBundle] loadNibNamed:[YXCustomSliderPointView.class description] owner:self options:nil] lastObject];
         showView.bounds = CGRectMake(0, 0, 21, 18);
