@@ -59,6 +59,10 @@
     
     [gesture setTranslation:CGPointZero inView:self];
     [self updateData];
+    
+    if (gesture.state == UIGestureRecognizerStateEnded && self.yxCustomSliderVBlock) {
+        self.yxCustomSliderVBlock(self.minValue, self.maxValue);
+    }
 }
 
 #pragma mark - 右滑块滑动
@@ -84,6 +88,10 @@
     
     [gesture setTranslation:CGPointZero inView:self];
     [self updateData];
+    
+    if (gesture.state == UIGestureRecognizerStateEnded && self.yxCustomSliderVBlock) {
+        self.yxCustomSliderVBlock(self.minValue, self.maxValue);
+    }
 }
 
 #pragma mark - 更新数据显示
@@ -223,6 +231,16 @@
         self.defualtBgV.clipsToBounds = NO;
         [self.defualtBgV addSubview:showView];
     }
+}
+
+- (CGFloat)minValue {
+    
+    return _leftSliderValue;
+}
+
+- (CGFloat)maxValue {
+    
+    return _rightSliderValue;
 }
 
 @end

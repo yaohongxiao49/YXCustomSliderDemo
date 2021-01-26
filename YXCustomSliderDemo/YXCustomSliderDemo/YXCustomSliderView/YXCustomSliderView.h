@@ -21,7 +21,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** 常规、选中背景视图X */
 #define kSliderX fabs(kScreenWidth - kSliderBgVWidth) /2
 
+typedef void(^YXCustomSliderVBlock)(CGFloat minValue, CGFloat maxValue);
+
 @interface YXCustomSliderView : UIView
+
+@property (nonatomic, assign, readonly) CGFloat minValue;
+@property (nonatomic, assign, readonly) CGFloat maxValue;
+
+@property (nonatomic, copy) YXCustomSliderVBlock yxCustomSliderVBlock;
 
 @end
 
